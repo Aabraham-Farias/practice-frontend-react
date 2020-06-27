@@ -1,40 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-//views 
-import Login from './views/login';
-import Home from './views/Home';
-import Signup from './views/Signup';
-
-import{
-BrowserRouter as Router, 
-Switch,
-Route,
-Link
-} from "react-router-dom";
-
-//componentes
+// Components
 import Navigation from './components/Navigation';
 
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import Routes from './Routes';
 
 function App() {
     return ( 
-<React.Fragment>
-
-<Router>
-<Navigation/>
-<Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <Signup/>
-          </Route>
-          <Route  exact path="/">
-            <Home />
-          </Route>
+      <Fragment>
+      <Router>
+        <Navigation />
+        <Switch>
+          { Routes }
         </Switch>
-</Router>
-</React.Fragment>
+      </Router>
+    </Fragment>
     );
 }
 
