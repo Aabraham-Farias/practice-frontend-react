@@ -3,13 +3,13 @@ import React from 'react';
 //views 
 import Login from './views/login';
 import Home from './views/Home';
-
+import Signup from './views/Signup';
 
 import{
 BrowserRouter as Router, 
 Switch,
 Route,
-  Link
+Link
 } from "react-router-dom";
 
 //componentes
@@ -25,6 +25,9 @@ function App() {
 <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup/>
           </Route>
           <Route path="/">
             <Home />
