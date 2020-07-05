@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-
+import axios from 'axios'
 import {
     Button,  
     Form,  
@@ -34,11 +34,26 @@ const handleInput = (e) => {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Enviando form!!');
     console.log(firstName, lastName, email, password);
+    const jsonSend={
+      first_name:firstName,
+      last_name:lastName,
+      email,
+      password,
+    }
+    try {
+    const res=  await axios.post('https://gift-red.herokuapp.com/api/v1/users',jsonSend);
+    console.log(res);
+    alert('Succesful signup');
+    } catch (error) {
+      alert('Error Creating');
+    }
+    
   }
+
 
 
     return(
